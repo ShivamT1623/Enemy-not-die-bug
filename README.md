@@ -1,5 +1,4 @@
 # Enemy-not-die-bug
-##-----------------Here is the enemy Script--------------------------------------------------------------------------------------------------------------------------------------------------------------------------##
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Android.Types;
