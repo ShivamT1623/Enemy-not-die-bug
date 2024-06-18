@@ -95,4 +95,34 @@ public class Enemy : MonoBehaviour
         Destroy(enemy);
         Instantiate(blood, transform.position, Quaternion.identity);
     }
-}  
+}
+##-------------------------------------------------bullet script----------------------
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Bullet : MonoBehaviour
+{
+    public float speed;
+    public void Start()
+    {
+        Invoke("Death",3f);
+    }
+    public void Update()
+    {
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
+    }
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag=="head")
+        {
+            Enemy.instance.EnemyHealth -= 35f;
+            Destroy(gameObject);
+        }
+    }
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
+}
+
